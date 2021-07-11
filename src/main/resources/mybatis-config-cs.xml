@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- http://www.mybatis.org/mybatis-3/zh/getting-started.html -->
+<configuration>
+    <settings>
+        <!--驼峰命名转换-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--开启二级缓存-->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+    <!--配置PageHelper插件-->
+
+    <!--设置默认指向的数据库-->
+    <environments default="dev">
+        <!--配置环境，不同的环境不同的id名字-->
+        <environment id="dev">
+            <!--采用JDBC方式对数据库事物进行commit/rollback-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--采用连接池方式管理数据库连接-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/trade?useSSL=false&amp;serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="456123"/>
+            </dataSource>
+        </environment>
+        <!-- 生产环境数据源 -->
+        <environment id="prd">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="oracle.jdbc.OracleDriver"></property>
+                <property name="url" value="jdbc:oracle:thin:@10.26.6.155:1521:xmoa"></property>
+                <property name="username" value="xm_inst"></property>
+                <property name="password" value="xm_inst"></property>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 通知SessionFactory对象在初始化Mybatis时加载goods.xml -->
+    <mappers>
+        <mapper resource="mapperxml/StrategyrecordMapper.xml" />
+    </mappers>
+</configuration>
