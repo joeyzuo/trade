@@ -45,7 +45,11 @@ public  class UntilFartory {
     }
 
     public static void main(String[] args) {
-        Double buy_open = UntilFartory.profitRate("BTC-SWAP-USDT", "BUY_OPEN", 10000.0, 20000.0, 10, 0.2);
+        Double buy = UntilFartory.profit("BTC-SWAP-USDT", "SELL_OPEN", 31379.0, 31312.8, 1, 0.0);
+        Double buy_open = UntilFartory.profitRate("BTC-SWAP-USDT", "SELL_OPEN", 31379.0, 31312.8, 1, 0.0);
+        System.out.println(buy_open);
+        System.out.println(buy);
+        System.out.println(UntilFartory.fee("BTC-SWAP-USDT",31322.0,1));
     }
 
 }
