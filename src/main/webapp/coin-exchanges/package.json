@@ -16,6 +16,7 @@
     "express": "^4.17.1",
     "https-proxy-agent": "^5.0.0",
     "node-fetch": "^2.6.1",
+    "vant": "^2.12.25",
     "view-design": "^4.0.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",

@@ -1,37 +1,40 @@
 <template>
-    <Collapse v-model="collapseValue">
-        <Panel name="1">
-            合约策略
-            <div slot="content">
-                <Row>
-                    <Select v-model="csymbol" style="width:200px">
-                        <Option v-for="item in brokerInfo.contracts" :value="item" :key="item.symbol">{{ item.symbol }}
-                        </Option>
-                    </Select>
-                </Row>
-                <Row>
-                    <Col span="12">col-12</Col>
-                    <Col span="12">col-12</Col>
-                </Row>
+    <van-tabs @click="onClick">
+        <van-tab title="合约">
+
+            <div v-for="it of  brokerInfo.contracts" v-bind:key="it">
+                <div class="sysbomlList">
+                    <span>
+                       {{it.symbol}}
+                    </span>
+                </div>
             </div>
-        </Panel>
-        <Panel name="2">
-            币币策略
-            <div slot="content">
-                <Select v-model="bsymbol" style="width:200px">
-                    <Option v-for="item in brokerInfo.symbols" :value="item" :key="item.symbol">{{ item.symbol}}
-                    </Option>
-                </Select>
+        </van-tab>
+        <van-tab title="币币">
+            <div v-for="it of brokerInfo.symbols" v-bind:key="it">
+                <div class="sysbomlList">
+                    <span>
+                        {{it.baseAsset+"/"+it.quoteAsset}}
+                    </span>
+                </div>
             </div>
-        </Panel>
-    </Collapse>
+        </van-tab>
+    </van-tabs>
 
 </template>
+<style lang="scss">
+.sysbomlList{
+    border-bottom:1px solid #2c3e50;
+    &:hover{
+        background-color: #91d5ff;
+        cursor: pointer;
+    }
+}
+</style>
 <script>
 
-
     export default {
-        components: { },
+        components: {},
         name: 'About',
         props: {
             msg: String
@@ -58,7 +61,7 @@
         }
         ,
         mounted() {
-            //this.init();
+            this.init();
         }
     }
 </script>
