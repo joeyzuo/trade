@@ -1,25 +1,32 @@
 <template>
-    <van-tabs @click="onClick">
-        <van-tab title="合约">
+    <div>
+        <van-cell is-link @click="showPopup" arrow-direction="left">展示弹出层</van-cell>
+        <van-popup v-model="show" position="bottom">
+            <van-tabs @click="onClick">
+                <van-tab title="合约">
 
-            <div v-for="it of  brokerInfo.contracts" v-bind:key="it">
-                <div class="sysbomlList">
+                    <div v-for="it of  brokerInfo.contracts" v-bind:key="it">
+                        <div class="sysbomlList">
                     <span>
                        {{it.symbol}}
                     </span>
-                </div>
-            </div>
-        </van-tab>
-        <van-tab title="币币">
-            <div v-for="it of brokerInfo.symbols" v-bind:key="it">
-                <div class="sysbomlList">
+                        </div>
+                    </div>
+                </van-tab>
+                <van-tab title="币币">
+                    <div v-for="it of brokerInfo.symbols" v-bind:key="it">
+                        <div class="sysbomlList">
                     <span>
                         {{it.baseAsset+"/"+it.quoteAsset}}
                     </span>
-                </div>
-            </div>
-        </van-tab>
-    </van-tabs>
+                        </div>
+                    </div>
+                </van-tab>
+            </van-tabs>
+        </van-popup>
+
+
+    </div>
 
 </template>
 <style lang="scss">
@@ -42,8 +49,8 @@
         data() {
             return {
                 collapseValue: "1", brokerInfo: {}, bsymbol: {}, csymbol: {},
-                value: "",
-                // define options
+               show:false
+                // definptions
             }
         }
         ,
@@ -55,8 +62,8 @@
                 })
             }
             ,
-            cs() {
-
+            showPopup() {
+                this.show = true;
             }
         }
         ,
