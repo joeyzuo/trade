@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/QuantitativeTrading.iml" filepath="$PROJECT_DIR$/QuantitativeTrading.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BHEX-OpenApi-master/sdk/java/broker-api-client.iml" filepath="$PROJECT_DIR$/BHEX-OpenApi-master/sdk/java/broker-api-client.iml" />
+    </modules>
+  </component>
+</project>

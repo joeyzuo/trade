@@ -6,7 +6,7 @@ import com.comom.domain.*;
 import com.comom.mapper.ContractOrderMapper;
 import com.comom.mapper.MyTradeMapper;
 import com.comom.mapper.MytradesMapper;
-import com.comom.service.StrategyrecordService;
+import com.comom.mapper.StrategyrecordMapper;
 import io.broker.api.client.BrokerApiClientFactory;
 import io.broker.api.client.BrokerApiRestClient;
 import io.broker.api.client.BrokerApiWebSocketClient;
@@ -25,7 +25,6 @@ import io.broker.api.client.domain.market.OrderBook;
 import io.broker.api.client.domain.market.OrderBookEntry;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 import java.util.*;
@@ -34,13 +33,13 @@ import java.util.stream.Collectors;
 @Service
 public class S {
     @Resource
-    StrategyrecordService strategyrecordService;
-    @Resource
     MytradesMapper mytradesMapper;
     @Resource
     MyTradeMapper myTradeMapper;
     @Resource
     ContractOrderMapper contractOrderMapper;
+    @Resource
+    StrategyrecordMapper strategyrecordMapper;
     private static BrokerApiRestClient restClient;
     private static BrokerContractApiRestClient contractApiRestClient;
     private static List<TraderRecord> traderRecords;
@@ -51,9 +50,6 @@ public class S {
         restClient = factory.newRestClient();
     }
 
-    public Strategyrecord getStrategy(Integer id) {
-        return strategyrecordService.selectByPrimaryKey(id);
-    }
 
     public void trading(String symbol, Integer strategyInsId) {
         BrokerApiClientFactory factory = BrokerApiClientFactory.newInstance(Constants.API_BASE_URL, Constants.ACCESS_KEY, Constants.SECRET_KEY);
@@ -374,6 +370,12 @@ public class S {
         }
 
 
+    }
+
+    public AjaxResult createStrategy(Strategyrecord strategyrecord){
+        int i = strategyrecordMapper.insertSelective(strategyrecord);
+        System.out.println(strategyrecord.getId());
+        return AjaxResult.success("insert success");
     }
 
 

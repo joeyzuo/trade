@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.comom.mapper.MytradesMapper">
+  <resultMap id="BaseResultMap" type="com.comom.domain.Mytrades">
+    <!--@mbg.generated-->
+    <!--@Table mytrades-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="create_Time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_Time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="order_Id" jdbcType="VARCHAR" property="orderId" />
+    <result column="client_Order_Id" jdbcType="VARCHAR" property="clientOrderId" />
+    <result column="close_order_id" jdbcType="VARCHAR" property="closeOrderId" />
+    <result column="symbol" jdbcType="VARCHAR" property="symbol" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="close_price" jdbcType="DOUBLE" property="closePrice" />
+    <result column="leverage" jdbcType="VARCHAR" property="leverage" />
+    <result column="orig_Qty" jdbcType="INTEGER" property="origQty" />
+    <result column="order_Type" jdbcType="VARCHAR" property="orderType" />
+    <result column="close_order_status" jdbcType="VARCHAR" property="closeOrderStatus" />
+    <result column="order_Status" jdbcType="VARCHAR" property="orderStatus" />
+    <result column="open_Fee" jdbcType="DOUBLE" property="openFee" />
+    <result column="close_Fee" jdbcType="DOUBLE" property="closeFee" />
+    <result column="side" jdbcType="VARCHAR" property="side" />
+    <result column="profit" jdbcType="DOUBLE" property="profit" />
+    <result column="sys_profit" jdbcType="DOUBLE" property="sysProfit" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, create_Time, update_Time, order_Id, client_Order_Id, close_order_id, symbol,
+    price, close_price, leverage, orig_Qty, order_Type, close_order_status, order_Status,
+    open_Fee, close_Fee, side, profit, sys_profit
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from mytrades
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from mytrades
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.comom.domain.Mytrades" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into mytrades (create_Time, update_Time, order_Id,
+    client_Order_Id, close_order_id, symbol,
+    price, close_price, leverage,
+    orig_Qty, order_Type, close_order_status,
+    order_Status, open_Fee, close_Fee,
+    side, profit, sys_profit
+    )
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{orderId,jdbcType=VARCHAR},
+    #{clientOrderId,jdbcType=VARCHAR}, #{closeOrderId,jdbcType=VARCHAR}, #{symbol,jdbcType=VARCHAR},
+    #{price,jdbcType=DOUBLE}, #{closePrice,jdbcType=DOUBLE}, #{leverage,jdbcType=VARCHAR},
+    #{origQty,jdbcType=INTEGER}, #{orderType,jdbcType=VARCHAR}, #{closeOrderStatus,jdbcType=VARCHAR},
+    #{orderStatus,jdbcType=VARCHAR}, #{openFee,jdbcType=DOUBLE}, #{closeFee,jdbcType=DOUBLE},
+    #{side,jdbcType=VARCHAR}, #{profit,jdbcType=DOUBLE}, #{sysProfit,jdbcType=DOUBLE}
+    )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.comom.domain.Mytrades" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into mytrades
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="createTime != null">
+        create_Time,
+      </if>
+      <if test="updateTime != null">
+        update_Time,
+      </if>
+      <if test="orderId != null">
+        order_Id,
+      </if>
+      <if test="clientOrderId != null">
+        client_Order_Id,
+      </if>
+      <if test="closeOrderId != null">
+        close_order_id,
+      </if>
+      <if test="symbol != null">
+        symbol,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="closePrice != null">
+        close_price,
+      </if>
+      <if test="leverage != null">
+        leverage,
+      </if>
+      <if test="origQty != null">
+        orig_Qty,
+      </if>
+      <if test="orderType != null">
+        order_Type,
+      </if>
+      <if test="closeOrderStatus != null">
+        close_order_status,
+      </if>
+      <if test="orderStatus != null">
+        order_Status,
+      </if>
+      <if test="openFee != null">
+        open_Fee,
+      </if>
+      <if test="closeFee != null">
+        close_Fee,
+      </if>
+      <if test="side != null">
+        side,
+      </if>
+      <if test="profit != null">
+        profit,
+      </if>
+      <if test="sysProfit != null">
+        sys_profit,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="clientOrderId != null">
+        #{clientOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="closeOrderId != null">
+        #{closeOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="symbol != null">
+        #{symbol,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="closePrice != null">
+        #{closePrice,jdbcType=DOUBLE},
+      </if>
+      <if test="leverage != null">
+        #{leverage,jdbcType=VARCHAR},
+      </if>
+      <if test="origQty != null">
+        #{origQty,jdbcType=INTEGER},
+      </if>
+      <if test="orderType != null">
+        #{orderType,jdbcType=VARCHAR},
+      </if>
+      <if test="closeOrderStatus != null">
+        #{closeOrderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="openFee != null">
+        #{openFee,jdbcType=DOUBLE},
+      </if>
+      <if test="closeFee != null">
+        #{closeFee,jdbcType=DOUBLE},
+      </if>
+      <if test="side != null">
+        #{side,jdbcType=VARCHAR},
+      </if>
+      <if test="profit != null">
+        #{profit,jdbcType=DOUBLE},
+      </if>
+      <if test="sysProfit != null">
+        #{sysProfit,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.comom.domain.Mytrades">
+    <!--@mbg.generated-->
+    update mytrades
+    <set>
+      <if test="createTime != null">
+        create_Time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_Time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderId != null">
+        order_Id = #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="clientOrderId != null">
+        client_Order_Id = #{clientOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="closeOrderId != null">
+        close_order_id = #{closeOrderId,jdbcType=VARCHAR},
+      </if>
+      <if test="symbol != null">
+        symbol = #{symbol,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="closePrice != null">
+        close_price = #{closePrice,jdbcType=DOUBLE},
+      </if>
+      <if test="leverage != null">
+        leverage = #{leverage,jdbcType=VARCHAR},
+      </if>
+      <if test="origQty != null">
+        orig_Qty = #{origQty,jdbcType=INTEGER},
+      </if>
+      <if test="orderType != null">
+        order_Type = #{orderType,jdbcType=VARCHAR},
+      </if>
+      <if test="closeOrderStatus != null">
+        close_order_status = #{closeOrderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="orderStatus != null">
+        order_Status = #{orderStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="openFee != null">
+        open_Fee = #{openFee,jdbcType=DOUBLE},
+      </if>
+      <if test="closeFee != null">
+        close_Fee = #{closeFee,jdbcType=DOUBLE},
+      </if>
+      <if test="side != null">
+        side = #{side,jdbcType=VARCHAR},
+      </if>
+      <if test="profit != null">
+        profit = #{profit,jdbcType=DOUBLE},
+      </if>
+      <if test="sysProfit != null">
+        sys_profit = #{sysProfit,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.comom.domain.Mytrades">
+    <!--@mbg.generated-->
+    update mytrades
+    set create_Time = #{createTime,jdbcType=TIMESTAMP},
+    update_Time = #{updateTime,jdbcType=TIMESTAMP},
+    order_Id = #{orderId,jdbcType=VARCHAR},
+    client_Order_Id = #{clientOrderId,jdbcType=VARCHAR},
+    close_order_id = #{closeOrderId,jdbcType=VARCHAR},
+    symbol = #{symbol,jdbcType=VARCHAR},
+    price = #{price,jdbcType=DOUBLE},
+    close_price = #{closePrice,jdbcType=DOUBLE},
+    leverage = #{leverage,jdbcType=VARCHAR},
+    orig_Qty = #{origQty,jdbcType=INTEGER},
+    order_Type = #{orderType,jdbcType=VARCHAR},
+    close_order_status = #{closeOrderStatus,jdbcType=VARCHAR},
+    order_Status = #{orderStatus,jdbcType=VARCHAR},
+    open_Fee = #{openFee,jdbcType=DOUBLE},
+    close_Fee = #{closeFee,jdbcType=DOUBLE},
+    side = #{side,jdbcType=VARCHAR},
+    profit = #{profit,jdbcType=DOUBLE},
+    sys_profit = #{sysProfit,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByNoOver"  resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from mytrades
+    where order_Status='NEW' or (close_order_id is not null and close_order_status='NEW')
+  </select>
+  <select id="selectByNeedClose"  resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from mytrades
+    where order_Status='FILLED' AND close_order_id is null
+  </select>
+  <select id="selectByOrderStatus"  parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from mytrades
+    where order_Status=#{status,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

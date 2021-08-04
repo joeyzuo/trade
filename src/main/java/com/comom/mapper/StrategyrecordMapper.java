@@ -1,8 +1,7 @@
 package com.comom.mapper;
-import com.comom.domain.Strategyrecord;
-import org.springframework.stereotype.Repository;
 
-@Repository
+import com.comom.domain.Strategyrecord;
+
 public interface StrategyrecordMapper {
     int deleteByPrimaryKey(Integer id);
 

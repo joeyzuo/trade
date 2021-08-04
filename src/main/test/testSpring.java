@@ -1,7 +1,7 @@
 import com.HBTC.pojo.Constants;
 import com.HBTC.service.Impl.S;
 import com.comom.domain.Strategyrecord;
-import com.comom.service.StrategyrecordService;
+
 import com.test.service.AccountService;
 import io.broker.api.client.BrokerApiClientFactory;
 import io.broker.api.client.BrokerContractApiRestClient;
@@ -45,10 +45,7 @@ public class testSpring {
     S s;
     @Test
     public void  run(){
-        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:spring.xml");
-        StrategyrecordService as = (StrategyrecordService) ac.getBean("strategyrecordService");
-        Strategyrecord strategyrecord = as.selectByPrimaryKey(1);
-        System.out.println(strategyrecord);
+
 
     }
     @Test

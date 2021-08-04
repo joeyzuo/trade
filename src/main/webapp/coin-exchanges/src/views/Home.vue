@@ -24,7 +24,7 @@
         <van-popup v-model="show"  position="bottom" :style="{ height: '50%' }">
             <div >
                 <van-row>
-                    <van-button plain hairline type="primary" size="large" @click="toStrategy('wg')">网格策略</van-button>
+                    <van-button plain hairline type="primary" size="large" @click="toStrategy('网格')">网格策略</van-button>
                 </van-row>
                 <van-row>
                     <van-button plain hairline type="primary" size="large">均仓策略</van-button>
